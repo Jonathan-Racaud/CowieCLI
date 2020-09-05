@@ -162,7 +162,11 @@ namespace CowieCLI
 			switch (field.FieldType)
 			{
 			case typeof(String):
-				res = field.SetValue(command, values[0]);
+				var fValue = field.GetValue(command).Value;
+				if (fValue.HasValue)
+					fValue.Dispose();
+
+				res = field.SetValue(command, new String(values[0]));
 				break;
 			case typeof(int):
 				var value = Int.Parse(values[0]);

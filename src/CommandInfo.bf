@@ -11,6 +11,11 @@ namespace CowieCLI
 
 		public int RequiredOptions;
 
+		public this (StringView name)
+		{
+			Name.Set(name);
+		}
+
 		public Self Name(StringView name)
 		{
 			Name.Set(name);
